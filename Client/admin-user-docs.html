@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student - Add Lesson</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+    <style>
+      img {
+        width: 100%;
+      }
+      h3,h2{
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="admin-dashboard.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                />
+              </a>
+
+              <!-- Search -->
+
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+              <!-- Menu -->
+
+              <!-- Menu -->
+              <ul class="nav navbar-nav flex-nowrap">
+                <!-- Notifications dropdown -->
+                <!-- <li
+                  class="nav-item dropdown dropdown-notifications dropdown-menu-sm-full"
+                >
+                  <button
+                    class="nav-link btn-flush dropdown-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                    data-dropdown-disable-document-scroll
+                    data-caret="false"
+                  >
+                    <i class="material-icons">notifications</i>
+                    <span class="badge badge-notifications badge-danger"
+                      >2</span
+                    >
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <div data-perfect-scrollbar class="position-relative">
+                      <div class="dropdown-header">
+                        <strong>Messages</strong>
+                      </div>
+                      <div class="list-group list-group-flush mb-0">
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action unread"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">5 minutes ago</small>
+
+                            <span
+                              class="ml-auto unread-indicator bg-primary"
+                            ></span>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <img
+                                src="assets/images/people/110/woman-5.jpg"
+                                alt="people"
+                                class="avatar-img rounded-circle"
+                              />
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <strong>Michelle</strong>
+                              <span class="text-black-70"
+                                >Clients loved the new design.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action unread"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">5 minutes ago</small>
+
+                            <span
+                              class="ml-auto unread-indicator bg-primary"
+                            ></span>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <img
+                                src="assets/images/people/110/woman-5.jpg"
+                                alt="people"
+                                class="avatar-img rounded-circle"
+                              />
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <strong>Michelle</strong>
+                              <span class="text-black-70">🔥 Superb job..</span>
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+
+                      <div class="dropdown-header">
+                        <strong>System notifications</strong>
+                      </div>
+                      <div class="list-group list-group-flush mb-0">
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action border-left-3 border-left-danger"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">3 minutes ago</small>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <span
+                                class="avatar-title rounded-circle bg-light"
+                              >
+                                <i
+                                  class="material-icons font-size-16pt text-danger"
+                                  >account_circle</i
+                                >
+                              </span>
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <span class="text-black-70"
+                                >Your profile information has not been synced
+                                correctly.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">5 hours ago</small>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <span
+                                class="avatar-title rounded-circle bg-light"
+                              >
+                                <i
+                                  class="material-icons font-size-16pt text-success"
+                                  >group_add</i
+                                >
+                              </span>
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <strong>Adrian. D</strong>
+                              <span class="text-black-70"
+                                >Wants to join your private group.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">1 day ago</small>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <span
+                                class="avatar-title rounded-circle bg-light"
+                              >
+                                <i
+                                  class="material-icons font-size-16pt text-warning"
+                                  >storage</i
+                                >
+                              </span>
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <span class="text-black-70"
+                                >Your deploy was successful.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li> -->
+                <!-- // END Notifications dropdown -->
+                <!-- User dropdown -->
+                <!-- <li class="nav-item dropdown ml-1 ml-md-3">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    ><img
+                      src="assets/images/people/50/guy-6.jpg"
+                      alt="Avatar"
+                      class="rounded-circle"
+                      width="40"
+                  /></a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="student-account-edit.html">
+                      <i class="material-icons">edit</i> Edit Account
+                    </a>
+                    <a class="dropdown-item" href="student-profile.html">
+                      <i class="material-icons">person</i> Public Profile
+                    </a>
+                    <a class="dropdown-item" href="guest-login.html">
+                      <i class="material-icons">lock</i> Logout
+                    </a>
+                  </div>
+                </li> -->
+                <!-- // END User dropdown -->
+              </ul>
+              <!-- // END Menu -->
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <div class="container">
+                <h2>Introduction</h2>
+                <p>
+                  Welcome to the LMS Admin User Documentation. This guide will
+                  help you understand and use all features available in the LMS
+                  Admin Panel efficiently.
+                </p>
+
+                <h2>Getting Started</h2>
+                <div class="step">
+                  <h3>Accessing the Admin Dashboard</h3>
+                  <p>
+                    To access the admin dashboard, log in using your admin
+                    credentials. Upon login, you will be redirected to the
+                    <strong>Admin Dashboard</strong>.
+                  </p>
+                  <img
+                    src="/Client/assets/images/dashboard.png"
+                    alt="Admin Dashboard Screenshot"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Navigation Overview</h3>
+                  <p>
+                    The dashboard contains the following navigation options in
+                    the sidebar:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>User</strong>
+                      <ul>
+                        <li>Add User</li>
+                        <li>User List</li>
+                        <li>Import Users</li>
+                      </ul>
+                    </li>
+                    <li><strong>Add Course</strong></li>
+                    <li><strong>Add Module</strong></li>
+                    <li><strong>Add Lesson</strong></li>
+                    <li><strong>Add Content</strong></li>
+                    <li><strong>Add Test Paper</strong></li>
+                    <li><strong>Assign License</strong></li>
+                  </ul>
+                </div>
+
+                <h2>User Management</h2>
+                <div class="step" id="add-user">
+                  <h3>Adding a New User</h3>
+                  <ol>
+                    <li>Navigate to <strong>User > Add User</strong>.</li>
+                    <li>
+                      Fill in the required details, such as
+                      <strong>Name</strong>, <strong>Email</strong>,
+                      <strong>Password</strong>, and <strong>Role</strong>.
+                    </li>
+                    <li>
+                      Click the <code>Submit</code> button to save the user.
+                    </li>
+                  </ol>
+                  <img
+                    src="/Client/assets/images/adduser.png"
+                    alt="Add User Screenshot"
+                  />
+                </div>
+
+                <div class="step" id="user-list">
+                  <h3>Viewing User List</h3>
+                  <p>To view all registered users:</p>
+                  <ol>
+                    <li>Go to <strong>User > Users List</strong>.</li>
+                    <li>
+                      Use the search bar to find specific users or filter the
+                      list by role.
+                    </li>
+                  </ol>
+                  <img
+                    src="/Client/assets/images/view-user.png"
+                    alt="View Users Screenshot"
+                  />
+                </div>
+
+                <h2>Steps to Add a Course</h2>
+
+                <div class="step" id="add-course">
+                  <h3>Step 1: Access the Add Course Page</h3>
+                  <p>
+                    From the Admin Dashboard, navigate to
+                    <strong> Add Course</strong> to access the page.
+                  </p>
+                </div>
+
+                <div class="step">
+                  <h3>Step 2: Fill in Course Details</h3>
+                  <p>Complete the course form with the following fields:</p>
+                  <ul>
+                    <li><strong>Title:</strong> Enter the course name.</li>
+                    <li>
+                      <strong>Description:</strong> Provide a brief overview of
+                      the course.
+                    </li>
+                    <li>
+                      <strong>Type:</strong> Specify the course type (e.g.,
+                      Self-paced, Instructor-led).
+                    </li>
+                    <li>
+                      <strong>Category:</strong> Categorize the course for
+                      easier navigation.
+                    </li>
+                    <li>
+                      <strong>Status:</strong> Select whether the course is
+                      <em>Active</em> or <em>Inactive</em>.
+                    </li>
+                    <li>
+                      <strong>Image URL:</strong> Add a link to the course
+                      thumbnail image (optional).
+                    </li>
+                  </ul>
+                  <img
+                    src="/Client/assets/images/createcourse.png"
+                    alt="Add Course Form"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 3: Submit the Form</h3>
+                  <p>
+                    Click on the <strong>Create Course</strong> button to save
+                    the course.
+                  </p>
+                </div>
+
+                <h2 id="view-course">Viewing Added Courses</h2>
+                <p>
+                  After creating a course, navigate to
+                  <strong>View Courses</strong> to see the list of all courses.
+                  Use the search bar or filters to find specific courses.
+                </p>
+                <img
+                  src="/Client/assets/images/ss/viewcourse.png"
+                  alt="View Courses Page"
+                />
+                <div class="step">
+                  <h3>Adding Modules and Lessons</h3>
+                  <ol>
+                    <li>
+                      Navigate to the <strong>Add Module</strong> section under
+                      Course Management.
+                    </li>
+                    <li>
+                      Choose the course for which you want to add a module.
+                    </li>
+                    <li>
+                      Provide a module name and click <code>Add Module</code>.
+                    </li>
+                    <li>
+                      Repeat the process for adding lessons to the module.
+                    </li>
+                  </ol>
+                  <img
+                    src="/Client/assets/images/ss/addmodule.png"
+                    alt="Add Module Screenshot"
+                  />
+                  <img
+                    src="/Client/assets/images/ss/addlesson.png"
+                    alt="Add Module Screenshot"
+                  />
+                </div>
+
+                <h2 id="add-testPaper">Steps to Add a Test Paper</h2>
+
+                <div class="step">
+                  <h3>Step 1: Access the Add Test Paper Page</h3>
+                  <p>
+                    From the Admin Dashboard, navigate to
+                    <strong>Add Test Paper</strong>.
+                  </p>
+                  <img
+                    src="/Client/assets/images/ss/addTest.png"
+                    alt="Add Test Paper Navigation"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 2: Select Course, Module, and Lesson</h3>
+                  <p>Use the dropdown menus to select the appropriate:</p>
+                  <ol>
+                    <li>
+                      <strong>Course:</strong> The course for which this test
+                      paper applies.
+                    </li>
+                    <li>
+                      <strong>Module:</strong> The module under the selected
+                      course.
+                    </li>
+                    <li>
+                      <strong>Lesson:</strong> The lesson to associate with the
+                      test paper.
+                    </li>
+                  </ol>
+                  <img
+                    src="/Client/assets/images/ss/add-test-2.png"
+                    alt="Course, Module, and Lesson Selection"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 3: Fill in Test Paper Details</h3>
+                  <p>Complete the following fields:</p>
+                  <ul>
+                    <li>
+                      <strong>Description:</strong> Brief description of the
+                      test paper.
+                    </li>
+                    <li>
+                      <strong>Author:</strong> Name of the test paper author.
+                    </li>
+                    <li>
+                      <strong>Total Marks:</strong> Maximum marks for the test
+                      paper.
+                    </li>
+                    <li>
+                      <strong>Time Limit:</strong> Duration of the test
+                      (optional).
+                    </li>
+                    <li>
+                      <strong>Max Attempts:</strong> Maximum allowed attempts
+                      for the test.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="step">
+                  <h3>Step 4: Upload Questions in JSON Format</h3>
+                  <p>
+                    Use the text area to enter questions in JSON format. Each
+                    question should follow this structure:
+                  </p>
+                  <pre>
+              [
+                  {
+                      "question": "What is 2+2?",
+                      "options": ["2", "3", "4"],
+                      "correctAnswer": "4",
+                      "type": "MCQ"
+                  }
+              ]
+                      </pre
+                  >
+                  <p>Ensure the JSON syntax is correct before submission.</p>
+                  <img
+                    src="/Client/assets/images/ss/add-test-3.png"
+                    alt="Upload Questions in JSON Format"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 5: Submit the Test Paper</h3>
+                  <p>
+                    Click on the <strong>Upload Test Paper</strong> button to
+                    save the test paper.
+                  </p>
+                </div>
+
+                <h2>Steps to Add Content</h2>
+
+                <div class="step">
+                  <h3>Step 1: Access the Add Content Page</h3>
+                  <p>
+                    Navigate to the <strong>Admin Dashboard</strong>, then go to
+                    <strong>Content Management > Add Content</strong>.
+                  </p>
+                  <img
+                    src="/Client/assets/images/ss/uploadcontent.png"
+                    alt="Add Content Navigation"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 2: Select Course, Module, and Lesson</h3>
+                  <ol>
+                    <li>
+                      <strong>Course:</strong> Choose a course from the dropdown
+                      menu.
+                    </li>
+                    <li>
+                      <strong>Module:</strong> After selecting a course, pick a
+                      module associated with it.
+                    </li>
+                    <li>
+                      <strong>Lesson:</strong> Select the lesson under the
+                      chosen module.
+                    </li>
+                  </ol>
+                </div>
+
+                <div class="step">
+                  <h3>Step 3: Fill in Content Details</h3>
+                  <p>Provide the following details:</p>
+                  <ul>
+                    <li>
+                      <strong>Content Type:</strong> Choose between
+                      <code>PDF</code> or <code>SCORM</code>.
+                    </li>
+                    <li>
+                      <strong>File:</strong> Upload the content file (e.g., PDF
+                      or SCORM package).
+                    </li>
+                    <li>
+                      <strong>Description:</strong> Add a description of the
+                      content.
+                    </li>
+                  </ul>
+                  <img
+                    src="/Client/assets/images/ss/upload-content-2.png"
+                    alt="Add Content Form"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 4: Submit the Content</h3>
+                  <p>
+                    Click on the <strong>Add Content</strong> button to upload
+                    the file.
+                  </p>
+                </div>
+
+                <h2>Steps to Import Users</h2>
+
+                <div class="step">
+                  <h3>Step 1: Access the Import Users Page</h3>
+                  <p>
+                    Navigate to the <strong>Admin Dashboard</strong> and select
+                    <strong>User Management > Import Users</strong>.
+                  </p>
+                  <img
+                    src="/Client/assets/images/ss/import-students.png"
+                    alt="Import Users Navigation"
+                  />
+                </div>
+
+                <div class="step">
+                  <h3>Step 2: Prepare the CSV File</h3>
+                  <p>Ensure your CSV file follows this format:</p>
+                  <ul>
+                    <li>
+                      <strong>Name:</strong> Full name of the user (required).
+                    </li>
+                    <li>
+                      <strong>Email:</strong> Valid email address (required).
+                    </li>
+                    <li>
+                      <strong>Password:</strong> Password for the account
+                      (required).
+                    </li>
+                    <li>
+                      <strong>Country:</strong> User's country (required).
+                    </li>
+                    <li><strong>Phone:</strong> Phone number (optional).</li>
+                    <li>
+                      <strong>Batch:</strong> Batch name or ID (optional).
+                    </li>
+                    <li><strong>Company:</strong> Company name (optional).</li>
+                    <li>
+                      <strong>Employee ID:</strong> Employee ID if applicable
+                      (optional).
+                    </li>
+                  </ul>
+                  <p>Example CSV structure:</p>
+                  <pre>
+                Name,Email,Password,Country,Phone,Batch,Company,Employee ID
+                John Doe,john.doe@example.com,password123,USA,1234567890,Batch A,Company X,EMP001
+                Jane Smith,jane.smith@example.com,password456,India,,Batch B,,EMP002
+                        </pre
+                  >
+                </div>
+
+                <div class="step">
+                  <h3>Step 3: Upload the CSV File</h3>
+                  <p>On the "Import Users" page:</p>
+                  <ol>
+                    <li>
+                      Click on the <strong>Choose File</strong> button and
+                      select your CSV file.
+                    </li>
+                    <li>
+                      Ensure the file is in the correct format and contains all
+                      required fields.
+                    </li>
+                    <li>
+                      Click the <strong>Upload</strong> button to submit the
+                      file.
+                    </li>
+                  </ol>
+                </div>
+
+                <div class="step">
+                  <h3>Step 4: Review the Import Results</h3>
+                  <p>
+                    After uploading, a confirmation message will appear showing
+                    the number of successfully imported users.
+                  </p>
+                </div>
+
+                <h2>Introduction</h2>
+                <p>
+                  This guide covers the entire journey of a student using the
+                  LMS, from viewing enrolled courses to taking lessons, quizzes,
+                  and accessing learning materials like PDFs.
+                </p>
+
+                <h2>1. My Courses</h2>
+                <p>
+                  The <strong>My Courses</strong> page lists all the courses you
+                  are enrolled in.
+                </p>
+                <h3>Features</h3>
+                <ul>
+                  <li>View a list of enrolled courses in a card layout.</li>
+                  <li>Check course progress through progress bars.</li>
+                  <li>
+                    Continue learning by clicking the
+                    <strong>Continue</strong> button on a course card.
+                  </li>
+                </ul>
+                <h3>Steps to Use</h3>
+                <ol>
+                  <li>Log in to your LMS account.</li>
+                  <li>Navigate to the <strong>My Courses</strong> page.</li>
+                  <li>
+                    Select a course by clicking <strong>Continue</strong>.
+                  </li>
+                </ol>
+
+                <h2>2. Taking a Course</h2>
+                <p>
+                  The <strong>Take Course</strong> page provides access to
+                  course modules and lessons.
+                </p>
+                <h3>Features</h3>
+                <ul>
+                  <li>View all modules and lessons within a course.</li>
+                  <li>
+                    Access content such as PDFs, SCORM packages, and quizzes.
+                  </li>
+                  <li>Track completion status of lessons and modules.</li>
+                </ul>
+                <h3>Steps to Use</h3>
+                <ol>
+                  <li>
+                    Navigate to a course through the
+                    <strong>My Courses</strong> page.
+                  </li>
+                  <li>Click on a module to expand it and view its lessons.</li>
+                  <li>Select a lesson to start learning.</li>
+                </ol>
+
+                <h2>3. Taking a Quiz</h2>
+                <p>
+                  The <strong>Take Quiz</strong> page allows you to attempt
+                  quizzes as part of your course assessments.
+                </p>
+                <h3>Features</h3>
+                <ul>
+                  <li>Time-based quizzes with countdown timers.</li>
+                  <li>
+                    Multiple-choice questions for interactive assessments.
+                  </li>
+                  <li>
+                    Submit answers and receive confirmation of your attempt.
+                  </li>
+                </ul>
+                <h3>Steps to Use</h3>
+                <ol>
+                  <li>Select a quiz from the lesson page.</li>
+                  <li>
+                    Answer the questions by selecting the correct options.
+                  </li>
+                  <li>
+                    Click the <strong>Submit Quiz</strong> button to complete
+                    the quiz.
+                  </li>
+                </ol>
+
+                <h2>4. Viewing PDFs</h2>
+                <p>
+                  The <strong>PDF Viewer</strong> page enables you to read
+                  course materials in PDF format with advanced viewing options.
+                </p>
+                <h3>Features</h3>
+                <ul>
+                  <li>Navigate through PDF pages.</li>
+                  <li>
+                    Zoom in, zoom out, or fit the document to the width of your
+                    screen.
+                  </li>
+                  <li>Download or print the PDF for offline access.</li>
+                </ul>
+                <h3>Steps to Use</h3>
+                <ol>
+                  <li>Open the PDF viewer through a lesson page.</li>
+                  <li>
+                    Use the toolbar to navigate between pages or adjust the zoom
+                    level.
+                  </li>
+                  <li>
+                    Click <strong>Download</strong> or <strong>Print</strong> as
+                    needed.
+                  </li>
+                </ol>
+
+                <h2>Troubleshooting</h2>
+                <h3>Common Issues</h3>
+                <ul>
+                  <li>
+                    <strong>Courses Not Displayed:</strong> Ensure you are
+                    enrolled or contact support.
+                  </li>
+                  <li>
+                    <strong>Lessons Not Loading:</strong> Check your internet
+                    connection and reload the page.
+                  </li>
+                  <li>
+                    <strong>PDF Not Displayed:</strong> Verify your browser
+                    compatibility and try reloading.
+                  </li>
+                  <li>
+                    <strong>Quiz Submission Issues:</strong> Ensure all
+                    questions are answered before submission.
+                  </li>
+                </ul>
+
+                <a href="#" class="btn">Back to Top</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+              <div
+                class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                data-perfect-scrollbar
+              >
+                <div class="sidebar-p-y">
+                  <!-- Account menu -->
+                  <div class="sidebar-heading">Docs</div>
+                  <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button sidebar-js-collapse"
+                        data-toggle="collapse"
+                        href="#admin_menu"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >person_outline</i
+                        >
+                        Admin
+                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                      </a>
+                      <ul
+                        class="sidebar-submenu sm-indent collapse"
+                        id="admin_menu"
+                      >
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#add-user">
+                            <span class="sidebar-menu-text">Add User</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#user-list">
+                            <span class="sidebar-menu-text">User List</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#import-users">
+                            <span class="sidebar-menu-text">Import Users</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#view-course">
+                            <span class="sidebar-menu-text">View Course</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#add-course">
+                            <span class="sidebar-menu-text">Add Course</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#add-module">
+                            <span class="sidebar-menu-text">Add Module</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#upload-content">
+                            <span class="sidebar-menu-text"
+                              >Upload Content</span
+                            >
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#add-test-paper">
+                            <span class="sidebar-menu-text"
+                              >Add Test Paper</span
+                            >
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#assign-license">
+                            <span class="sidebar-menu-text"
+                              >Assign License</span
+                            >
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                  <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button sidebar-js-collapse"
+                        data-toggle="collapse"
+                        href="#learner_menu"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >person_outline</i
+                        >
+                        Learner
+                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                      </a>
+                      <ul
+                        class="sidebar-submenu sm-indent collapse"
+                        id="learner_menu"
+                      >
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#my-course">
+                            <span class="sidebar-menu-text">My Course</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#take-course">
+                            <span class="sidebar-menu-text">Take Course</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#take-quiz">
+                            <span class="sidebar-menu-text">Take Quiz</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a class="sidebar-menu-button" href="#view-pdf">
+                            <span class="sidebar-menu-text">View Pdf</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                  <!-- Components menu -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+     
+      </div>
+    </div>
+
+    <script>
+      async function fetchCourses() {
+        const courseDropdown = document.getElementById("courseList");
+        try {
+          const response = await fetch("http://localhost:3000/api/courses", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            },
+          });
+          const courses = await response.json();
+          courseDropdown.innerHTML =
+            '<option value="">Select a Course</option>';
+          courses.courses.forEach((course) => {
+            const option = document.createElement("option");
+            option.value = course._id;
+            option.textContent = course.title;
+            courseDropdown.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Error fetching courses:", error);
+        }
+      }
+
+      async function fetchModules() {
+        const courseId = document.getElementById("courseList").value;
+        const moduleDropdown = document.getElementById("moduleList");
+        if (!courseId) {
+          moduleDropdown.innerHTML =
+            '<option value="">Select a Module</option>';
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `http://localhost:3000/api/admin/modules/${courseId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+              },
+            }
+          );
+          const modules = await response.json();
+          moduleDropdown.innerHTML =
+            '<option value="">Select a Module</option>';
+          modules.modules.forEach((module) => {
+            const option = document.createElement("option");
+            option.value = module._id;
+            option.textContent = module.title;
+            moduleDropdown.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Error fetching modules:", error);
+        }
+      }
+
+      async function addLesson() {
+        const moduleId = document.getElementById("moduleList").value;
+        const title = document.getElementById("lessonTitle").value;
+        const description = document.getElementById("lessonDescription").value;
+        const order = document.getElementById("lessonOrder").value;
+
+        if (!moduleId || !title) {
+          alert("Please select a module and enter lesson details.");
+          return;
+        }
+
+        try {
+          const response = await fetch("http://localhost:3000/api/lesson", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            },
+            body: JSON.stringify({
+              module_id: moduleId,
+              title,
+              description,
+              order,
+            }),
+          });
+          const result = await response.json();
+          alert(result.message || "Lesson added successfully!");
+        } catch (error) {
+          console.error("Error adding lesson:", error);
+        }
+      }
+
+      window.onload = fetchCourses;
+    </script>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    
+
+    <!-- Global Settings -->
+    <script src="assets/js/settings.js"></script>
+
+    <!-- Moment.js -->
+    <script src="assets/vendor/moment.min.js"></script>
+    <script src="assets/vendor/moment-range.js"></script>
+  </body>
+</html>

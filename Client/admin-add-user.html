@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Student - Add User</title>
+
+  <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+  <meta name="robots" content="noindex" />
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Perfect Scrollbar -->
+  <link type="text/css" href="assets/vendor/perfect-scrollbar.css" rel="stylesheet" />
+
+  <!-- Material Design Icons -->
+  <link type="text/css" href="assets/css/material-icons.css" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+  <!-- Preloader -->
+  <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+  <!-- App CSS -->
+  <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+</head>
+
+<body class="layout-fluid">
+  <div class="preloader">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+
+    <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+    <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+  </div>
+
+  <!-- Header Layout -->
+  <div class="mdk-header-layout js-mdk-header-layout">
+    <!-- Header -->
+
+    <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+      <div class="mdk-header__content">
+        <!-- Navbar -->
+        <nav id="default-navbar" class="navbar navbar-expand navbar-dark bg-primary m-0">
+          <div class="container-fluid">
+            <!-- Toggle sidebar -->
+            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+              <span class="material-icons">menu</span>
+            </button>
+
+            <!-- Brand -->
+            <a href="admin-dashboard.html" class="navbar-brand">
+              <img src="../Client/assets/images/logo/Vidyarthlogo.png" class="mr-2" alt="Vidyarth" />
+            </a>
+
+            <!-- Search -->
+
+            <!-- // END Search -->
+
+            <div class="flex"></div>
+
+
+            <!-- // END Menu -->
+          </div>
+        </nav>
+        <!-- // END Navbar -->
+      </div>
+    </div>
+
+    <!-- // END Header -->
+
+    <!-- Header Layout Content -->
+    <div class="mdk-header-layout__content">
+      <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+        <div class="mdk-drawer-layout__content page">
+          <div class="container-fluid page__container">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+              <li class="breadcrumb-item active">Add User</li>
+            </ol>
+            <h1 class="h2">Add User</h1>
+            <main class="container my-5">
+              <div class="card card-body">
+                <form id="add-user-form">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter full name"
+                      required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address"
+                      required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                      placeholder="Enter password" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="role" class="form-label">Role:</label>
+                    <select id="role" name="role" class="form-control custom-select" required>
+                      <option value="">Select a role</option>
+                      <option value="Admin">Admin</option>
+                      <option value="Learner">Learner</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="country" class="form-label">Country:</label>
+                    <input type="text" id="country" name="country" class="form-control" placeholder="Enter country"
+                      required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Phone:</label>
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter phone number" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="batch" class="form-label">Batch:</label>
+                    <input type="text" id="batch" name="batch" class="form-control" placeholder="Enter batch" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="company" class="form-label">Company:</label>
+                    <input type="text" id="company" name="company" class="form-control"
+                      placeholder="Enter company name" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="employee_id" class="form-label">Employee ID:</label>
+                    <input type="text" id="employee_id" name="employee_id" class="form-control"
+                      placeholder="Enter employee ID" />
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Add User
+                  </button>
+                </form>
+
+                <div id="message" class="alert alert-success mt-3 d-none">
+                  User added successfully!
+                </div>
+              </div>
+            </main>
+
+          </div>
+        </div>
+
+        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+          <div class="mdk-drawer__content">
+            <div class="sidebar sidebar-left sidebar-dark bg-dark o-hidden" data-perfect-scrollbar>
+              <div class="sidebar-p-y">
+                <!-- Account menu -->
+                <div class="sidebar-heading">Admin</div>
+                <ul class="sidebar-menu">
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button sidebar-js-collapse" data-toggle="collapse" href="#account_menu">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">person_outline</i>
+                      User
+                      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                    </a>
+                    <ul class="sidebar-submenu sm-indent collapse" id="account_menu">
+                      <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="/Client/admin-add-user.html">
+                          <span class="sidebar-menu-text">Add User</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="/Client/admin-view-user.html">
+                          <span class="sidebar-menu-text">User List</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="/Client/admin-import-user.html">
+                          <span class="sidebar-menu-text">Import Users</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="sidebar-menu sm-active-button-bg">
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-view-course.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">search</i>
+                      View Courses
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-add-course.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">search</i>
+                      Add Courses
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-add-module.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">import_contacts</i>
+                      Add Module
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-add-lesson.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">class</i>
+                      Add Lesson
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-add-content.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">class</i>
+                      Add Content
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-add-quiz.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">class</i>
+                      Add Test Paper
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/admin-assign-license.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                      Assign Licence
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="/Client/guest-login.html">
+                      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+                <!-- Components menu -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script>
+    const adminToken = localStorage.getItem('adminToken'); // Assuming the admin token is stored in localStorage
+  
+    const form = document.getElementById('add-user-form');
+    const message = document.getElementById('message');
+  
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      console.log(adminToken);
+  
+      const formData = new FormData(form);
+      const user = Object.fromEntries(formData);
+  
+      try {
+        const response = await fetch('http://localhost:3000/api/admin/add-user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${adminToken}`
+          },
+          body: JSON.stringify(user)
+        });
+  
+        if (response.ok) {
+          const alert = document.createElement('div');
+          alert.className = 'alert alert-success alert-dismissible fade show';
+          alert.role = 'alert';
+          alert.innerHTML = `User added successfully! 
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>`;
+          form.parentElement.insertBefore(alert, form);
+          form.reset();
+        } else {
+          const errorData = await response.json();
+          alert(`Error: ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error('Error adding user:', error);
+        alert('An error occurred while adding the user.');
+      }
+    });
+  </script>
+  
+
+  <!-- jQuery -->
+  <script src="assets/vendor/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="assets/vendor/popper.min.js"></script>
+  <script src="assets/vendor/bootstrap.min.js"></script>
+
+  <!-- Perfect Scrollbar -->
+  <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+  <!-- MDK -->
+  <script src="assets/vendor/dom-factory.js"></script>
+  <script src="assets/vendor/material-design-kit.js"></script>
+
+  <!-- App JS -->
+  <script src="assets/js/app.js"></script>
+
+  <!-- Highlight.js -->
+  <script src="assets/js/hljs.js"></script>
+
+  <!-- App Settings (safe to remove) -->
+
+
+  <!-- Global Settings -->
+  <script src="assets/js/settings.js"></script>
+
+  <!-- Moment.js -->
+  <script src="assets/vendor/moment.min.js"></script>
+  <script src="assets/vendor/moment-range.js"></script>
+
+
+</body>
+
+</html>

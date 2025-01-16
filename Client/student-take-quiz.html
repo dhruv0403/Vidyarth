@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student - Take quiz</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="student-my-courses.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                />
+              </a>
+
+              <!-- Search -->
+              <form class="search-form d-none d-md-flex">
+                <input type="text" class="form-control" placeholder="Search" />
+                <button class="btn" type="button">
+                  <i class="material-icons font-size-24pt">search</i>
+                </button>
+              </form>
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+              <!-- Menu -->
+
+              <!-- Menu -->
+              <ul class="nav navbar-nav flex-nowrap">
+                <!-- Notifications dropdown -->
+
+                <!-- // END User dropdown -->
+              </ul>
+              <!-- // END Menu -->
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="student-my-courses.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Quiz</li>
+              </ol>
+              <div id="quiz-container" class="quiz-container">
+                <p>Loading quiz...</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" data-align="end">
+            <div class="mdk-drawer__content">
+              <div
+                class="sidebar sidebar-right sidebar-light bg-white o-hidden"
+                data-perfect-scrollbar
+              >
+                <div class="sidebar-p-y">
+                  <div class="sidebar-heading">Time left</div>
+                  <div class="sidebar-p-x" id="countdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+      <div class="mdk-drawer__content">
+        <div
+          class="sidebar sidebar-left bg-white o-hidden"
+          data-perfect-scrollbar
+        >
+        <div class="sidebar-p-y">
+          <div class="sidebar-heading">Student</div>
+
+          <!-- // END Components Menu -->
+
+          <ul class="sidebar-menu">
+            <li class="sidebar-menu-item active">
+              <a
+                class="sidebar-menu-button"
+                href="/Client/student-my-courses.html"
+              >
+                <i
+                  class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                  >dashboard</i
+                >
+                My Courses
+              </a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import BASE_URL from "/Client/assets/js/config.js";
+      // Get query parameters from URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // Fetch Test Details by Attempt ID
+      async function fetchTestDetails(attemptId) {
+        try {
+          const studentToken = localStorage.getItem("studentToken");
+          if (!studentToken) {
+            alert("You need to log in first.");
+            window.location.href = "/login.html";
+            return;
+          }
+
+          const response = await fetch(
+            `${BASE_URL}/test/details/attempt/${attemptId}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${studentToken}`,
+              },
+            }
+          );
+
+          if (!response.ok) {
+            alert("Failed to fetch test details. Try again.");
+            return;
+          }
+
+          const data = await response.json();
+          initializeTimer(data.attempt.startTime, data.test.timeLimit);
+          renderQuiz(data.test, data.attempt);
+        } catch (error) {
+          console.error("Error fetching test details:", error);
+          alert("An error occurred while loading the test. Please try again.");
+        }
+      }
+
+      function initializeTimer(startTime, timeLimit) {
+        const startTimestamp = new Date(startTime).getTime();
+        const endTimestamp = startTimestamp + timeLimit * 60 * 1000; // Time limit in milliseconds
+
+        function updateTimer() {
+          const now = Date.now();
+          const remainingTime = endTimestamp - now;
+
+          if (remainingTime <= 0) {
+            clearInterval(timerInterval);
+            document.querySelector(".countdown").innerHTML = `
+                <p class="pl-1 pr-1">
+                  <span class="h5 text-danger">00</span> hrs 
+                  <span class="h5 text-danger">00</span> min 
+                  <span class="h5 text-danger">00</span> sec
+                </p>`;
+            alert("Time's up! Submitting the quiz automatically.");
+            document.getElementById("submit-quiz").click(); // Auto-submit quiz
+            return;
+          }
+
+          const hours = Math.floor(remainingTime / 3600000);
+          const minutes = Math.floor((remainingTime % 3600000) / 60000);
+          const seconds = Math.floor((remainingTime % 60000) / 1000);
+
+          // Update the countdown element dynamically
+          document.querySelector("#countdown").innerHTML = `
+              <p class="pl-1 pr-1">
+                <span class="h5 text-primary">${String(hours).padStart(
+                  2,
+                  "0"
+                )}</span> hrs 
+                <span class="h5 text-primary">${String(minutes).padStart(
+                  2,
+                  "0"
+                )}</span> min 
+                <span class="h5 text-primary">${String(seconds).padStart(
+                  2,
+                  "0"
+                )}</span> sec
+              </p>`;
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // Call immediately to initialize
+      }
+
+      // Render the Quiz on the Page
+      function renderQuiz(test, attempt) {
+        const container = document.getElementById("quiz-container");
+        container.innerHTML = ""; // Clear any existing content
+
+        // Render Test Metadata
+        const metadataHtml = `
+                <div class="quiz-header">
+                  <h2>${test.description}</h2>
+                  <p><strong>Total Marks:</strong> ${test.totalMarks}</p>
+                  <p><strong>Time Limit:</strong> ${test.timeLimit} minutes</p>
+                  <p><strong>Maximum Attempts:</strong> ${test.maxAttempts}</p>
+                </div>
+              `;
+        container.innerHTML += metadataHtml;
+
+        // Render Questions
+        test.questions.forEach((question, index) => {
+          const questionHtml = `
+                  <div class="card question-card" data-question-id="${
+                    question.question_id
+                  }">
+                    <div class="card-body">
+                      <h5 class="card-title">Q${index + 1}: ${
+            question.question
+          }</h5>
+                      <div class="options">
+                        ${question.options
+                          .map(
+                            (option, optIndex) => `
+                            <div class="form-group">
+                              <div class="custom-control custom-radio">
+                                <input id="q${index}_option${optIndex}" type="radio" 
+                                       name="question-${index}" 
+                                       value="${option}" 
+                                       class="custom-control-input">
+                                <label for="q${index}_option${optIndex}" class="custom-control-label">${option}</label>
+                              </div>
+                            </div>
+                          `
+                          )
+                          .join("")}
+                      </div>
+                    </div>
+                  </div>
+                `;
+          container.innerHTML += questionHtml;
+        });
+
+        // Render Submit Button
+        container.innerHTML += `
+                <button id="submit-quiz" class="btn btn-primary mt-3">Submit Quiz</button>
+              `;
+
+        // Attach Submit Quiz Handler
+        document
+          .getElementById("submit-quiz")
+          .addEventListener("click", () => submitQuiz(attempt.id));
+      }
+
+      // Submit Quiz Responses
+      async function submitQuiz(attemptId) {
+        const responses = [];
+        const questions = document.querySelectorAll(".question-card");
+
+        questions.forEach((question) => {
+          const questionId = question.getAttribute("data-question-id");
+          const selectedOption = question.querySelector(
+            'input[type="radio"]:checked'
+          );
+          responses.push({
+            question_id: questionId,
+            response: selectedOption ? selectedOption.value : null,
+          });
+        });
+
+        try {
+          const studentToken = localStorage.getItem("studentToken");
+          const response = await fetch(`${BASE_URL}/test/submit`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${studentToken}`,
+            },
+            body: JSON.stringify({ attempt_id: attemptId, responses }),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            alert("Quiz submitted successfully!");
+            window.location.href = `/Client/student-quiz-results.html?attemptId=${attemptId}`;
+          } else {
+            alert(result.message || "Failed to submit quiz.");
+          }
+        } catch (error) {
+          console.error("Error submitting quiz:", error);
+          alert(
+            "An error occurred while submitting the quiz. Please try again."
+          );
+        }
+      }
+
+      // Load the Quiz on Page Load
+      window.onload = () => {
+        const attemptId = getQueryParam("attemptId");
+        if (!attemptId) {
+          alert("No attempt ID found. Redirecting to the course page.");
+          window.location.href = "/student-take-course.html";
+          return;
+        }
+        fetchTestDetails(attemptId);
+      };
+    </script>
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    
+
+    <!-- Required by countdown -->
+    <script src="assets/vendor/moment.min.js"></script>
+    <!-- Easy Countdown -->
+    <script src="assets/vendor/jquery.countdown.min.js"></script>
+
+    <!-- Init -->
+    <script src="assets/js/countdown.js"></script>
+  </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Student - Quiz results</title>
+
+        <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+        <meta name="robots"
+              content="noindex">
+
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="assets/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="assets/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="assets/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="assets/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="assets/css/app.css"
+              rel="stylesheet">
+
+    </head>
+
+    <body class=" layout-fluid">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 data-fixed
+                 class="mdk-header js-mdk-header mb-0">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+                    <nav id="default-navbar"
+                         class="navbar navbar-expand navbar-dark bg-primary m-0">
+                        <div class="container-fluid">
+                            <!-- Toggle sidebar -->
+                            <button class="navbar-toggler d-block"
+                                    data-toggle="sidebar"
+                                    type="button">
+                                <span class="material-icons">menu</span>
+                            </button>
+
+                            <!-- Brand -->
+                            <a href="student-my-courses.html"
+                               class="navbar-brand">
+                                <img src="../Client/assets/images/logo/Vidyarthlogo.png"
+                                     class="mr-2"
+                                     alt="Vidyarth" />
+                                
+                            </a>
+
+                            <!-- Search -->
+                            <form class="search-form d-none d-md-flex">
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Search">
+                                <button class="btn"
+                                        type="button"><i class="material-icons font-size-24pt">search</i></button>
+                            </form>
+                            <!-- // END Search -->
+
+                            <div class="flex"></div>
+
+                            <!-- Menu -->
+                          
+
+                       
+                            <!-- // END Menu -->
+                        </div>
+                    </nav>
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content">
+
+                <div data-push
+                     data-responsive-width="992px"
+                     class="mdk-drawer-layout js-mdk-drawer-layout">
+                    <div class="mdk-drawer-layout__content page ">
+
+                        <div class="container-fluid page__container">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="student-my-courses.html">Home</a></li>
+                                <li class="breadcrumb-item active">Quiz Results</li>
+                            </ol>
+                            <div id="quiz-results-container" class="container mt-5"></div>
+
+                          
+                        </div>
+
+                    </div>
+
+                    <div class="mdk-drawer js-mdk-drawer"
+                         id="default-drawer">
+                        <div class="mdk-drawer__content ">
+                            <div class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                                 data-perfect-scrollbar>
+                                 <div class="sidebar-p-y">
+                                    <div class="sidebar-heading">Student</div>
+                  
+                                    <!-- // END Components Menu -->
+                  
+                                    <ul class="sidebar-menu">
+                                      <li class="sidebar-menu-item active">
+                                        <a
+                                          class="sidebar-menu-button"
+                                          href="/Client/student-my-courses.html"
+                                        >
+                                          <i
+                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                                            >dashboard</i
+                                          >
+                                          My Courses
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+           
+
+            </div>
+        </div>
+
+        <script type="module">
+            
+            import BASE_URL from "/Client/assets/js/config.js";
+            // Get query parameters from URL
+            function getQueryParam(param) {
+              const urlParams = new URLSearchParams(window.location.search);
+              return urlParams.get("attemptId");
+            }
+          
+            // Fetch Test Results and Render Them
+            async function fetchTestResults(attemptId) {
+              try {
+                const studentToken = localStorage.getItem("studentToken");
+                if (!studentToken) {
+                  alert("You need to log in first.");
+                  window.location.href = "/login.html";
+                  return;
+                }
+          
+                const response = await fetch(`${BASE_URL}/test/result/${attemptId}`, {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${studentToken}`,
+                  },
+                });
+          
+                if (!response.ok) {
+                  alert("Failed to fetch test details. Try again.");
+                  return;
+                }
+          
+                const data = await response.json();
+                renderResults(data.test, data.attempt);
+              } catch (error) {
+                console.error("Error fetching test details:", error);
+                alert("An error occurred while loading the test results. Please try again.");
+              }
+            }
+          
+            // Render Quiz Results on the Page
+            function renderResults(test, attempt) {
+              const resultContainer = document.getElementById("quiz-results-container");
+              resultContainer.innerHTML = ""; // Clear any existing content
+          
+              // Render Test Metadata
+              const metadataHtml = `
+                <div class="result-header">
+                  <h2>${test.description}</h2>
+                  <p><strong>Total Marks:</strong> ${test.totalMarks}</p>
+                  <p><strong>Time Limit:</strong> ${test.timeLimit} minutes</p>
+                  <p><strong>Status:</strong> ${attempt.status}</p>
+                </div>
+              `;
+              resultContainer.innerHTML += metadataHtml;
+          
+              // Render Score
+              const scoreHtml = `
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Your Score</h4>
+                  </div>
+                  <div class="card-body">
+                    <h4>${attempt.score} / ${test.totalMarks}</h4>
+                  </div>
+                </div>
+              `;
+              resultContainer.innerHTML += scoreHtml;
+          
+              // Render Questions and Answers
+              const questionsHtml = test.questions
+                .map((question, index) => {
+                  const userResponse = attempt.responses.find(
+                    (response) => response.question_id === question.question_id
+                  );
+                  const isCorrect = userResponse.response === question.correctAnswer;
+          
+                  return `
+                    <li class="list-group-item">
+                      <div class="media">
+                        <div class="media-left">
+                          <div class="text-muted-light">${index + 1}.</div>
+                        </div>
+                        <div class="media-body">
+                          <p>${question.question}</p>
+                          <p><strong>Your Answer:</strong> ${userResponse.response || "No Answer"}</p>
+                          <p><strong>Correct Answer:</strong> ${question.correctAnswer}</p>
+                        </div>
+                        <div class="media-right">
+                          <span class="badge badge-${isCorrect ? "success" : "danger"}">
+                            ${isCorrect ? "Correct" : "Wrong"}
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                  `;
+                })
+                .join("");
+          
+              resultContainer.innerHTML += `
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Questions and Answers</h4>
+                  </div>
+                  <ul class="list-group list-group-fit mb-0">${questionsHtml}</ul>
+                </div>
+              `;
+            }
+          
+            // Load the Results on Page Load
+            window.onload = () => {
+              const attemptId = getQueryParam("attemptId");
+              if (!attemptId) {
+                alert("No attempt ID found. Redirecting to the course page.");
+                window.location.href = "/student-take-course.html";
+                return;
+              }
+              fetchTestResults(attemptId);
+            };
+          </script>
+          
+
+        <!-- jQuery -->
+        <script src="assets/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="assets/vendor/popper.min.js"></script>
+        <script src="assets/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- MDK -->
+        <script src="assets/vendor/dom-factory.js"></script>
+        <script src="assets/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="assets/js/app.js"></script>
+
+        <!-- Highlight.js -->
+        <script src="assets/js/hljs.js"></script>
+
+        <!-- App Settings (safe to remove) -->
+        
+
+    </body>
+
+</html>

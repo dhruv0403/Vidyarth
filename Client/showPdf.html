@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced PDF Viewer</title>
+    <style>
+      /* General Reset */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      #pdf-viewer {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Header Toolbar */
+      #header-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f4f4f4;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ddd;
+        flex-shrink: 0; /* Prevent shrinking */
+      }
+
+      #toolbar-controls button,
+      #toolbar-controls input {
+        margin: 0 5px;
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+
+      #toolbar-controls input {
+        width: 50px;
+        text-align: center;
+      }
+
+      /* Main Content */
+      #main-content {
+        display: flex;
+        flex: 1; /* Allow this section to grow and fill available space */
+        overflow: hidden;
+      }
+
+      #canvas-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+        background-color: #efefef;
+      }
+
+      /* PDF Canvas */
+      #pdf-canvas {
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Footer Toolbar */
+      #footer-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f4f4f4;
+        padding: 10px 20px;
+        border-top: 1px solid #ddd;
+        flex-shrink: 0; /* Prevent shrinking */
+      }
+
+      #progress-bar {
+        width: 100px;
+        height: 5px;
+        background-color: #ddd;
+        position: relative;
+      }
+
+      #progress {
+        width: 0;
+        height: 100%;
+        background-color: #4caf50;
+        transition: width 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pdf-viewer">
+      <!-- Header Toolbar -->
+      <div id="header-toolbar">
+        <span id="file-name">PDF Viewer</span>
+        <div id="toolbar-controls">
+          <button onclick="prevPage()">Previous</button>
+          <input type="number" id="page-number" min="1" value="1" />
+          <button onclick="nextPage()">Next</button>
+          <button onclick="zoomIn()">Zoom In</button>
+          <button onclick="zoomOut()">Zoom Out</button>
+          <button onclick="fitToWidth()">Fit to Width</button>
+          <button onclick="downloadPDF()">Download</button>
+          <button onclick="printPDF()">Print</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div id="main-content">
+        <div id="canvas-container">
+          <canvas id="pdf-canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Footer Toolbar -->
+      <div id="footer-toolbar">
+        <span id="current-page">Page 1 of 1</span>
+        <div id="progress-bar">
+          <div id="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const lessonId = urlParams.get("lessonId");
+
+      if (!lessonId) {
+        alert("Lesson ID is missing in the URL!");
+      }
+
+      const url = `http://localhost:3000/api/content/pdf/${lessonId}`;
+
+      const canvas = document.getElementById("pdf-canvas");
+      const context = canvas.getContext("2d");
+      let pdfDoc = null;
+      let currentPage = 1;
+      let totalPages = 0;
+      let scale = 1.5;
+
+      // Load PDF
+      async function loadPDF(pdfUrl) {
+        const loadingTask = pdfjsLib.getDocument(pdfUrl);
+        pdfDoc = await loadingTask.promise;
+
+        totalPages = pdfDoc.numPages;
+        document.getElementById(
+          "current-page"
+        ).textContent = `Page ${currentPage} of ${totalPages}`;
+        renderPage(currentPage);
+      }
+
+      // Render Page
+      async function renderPage(num) {
+        const page = await pdfDoc.getPage(num);
+        const viewport = page.getViewport({ scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const renderContext = {
+          canvasContext: context,
+          viewport,
+        };
+
+        await page.render(renderContext).promise;
+        document.getElementById(
+          "current-page"
+        ).textContent = `Page ${num} of ${totalPages}`;
+      }
+
+      // Navigation Controls
+      function prevPage() {
+        if (currentPage <= 1) return;
+        currentPage--;
+        renderPage(currentPage);
+      }
+
+      function nextPage() {
+        if (currentPage >= totalPages) return;
+        currentPage++;
+        renderPage(currentPage);
+      }
+
+      // Zoom Controls
+      function zoomIn() {
+        scale += 0.1;
+        renderPage(currentPage);
+      }
+
+      function zoomOut() {
+        if (scale > 0.5) {
+          scale -= 0.1;
+          renderPage(currentPage);
+        }
+      }
+
+      function fitToWidth() {
+        const containerWidth =
+          document.getElementById("canvas-container").clientWidth;
+        scale = containerWidth / canvas.width;
+        renderPage(currentPage);
+      }
+
+      // Download PDF
+      function downloadPDF() {
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `Lesson_${lessonId}.pdf`;
+        link.click();
+      }
+
+      // Print PDF
+      function printPDF() {
+        const win = window.open(url, "_blank");
+        win.print();
+      }
+
+      // Initialize Viewer
+      if (lessonId) {
+        loadPDF(url);
+      }
+    </script>
+  </body>
+</html>

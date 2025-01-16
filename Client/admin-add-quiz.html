@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Instructor - Edit quiz</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+
+    <!-- Touchspin -->
+    <link rel="stylesheet" href="assets/css/bootstrap-touchspin.css" />
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/nestable.css" />
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="admin-dashboard.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                />
+                
+              </a>
+
+
+            
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+            
+
+          
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                <li class="breadcrumb-item">
+                  <a href="instructor-quizzes.html">Quiz Manager</a>
+                </li>
+                <li class="breadcrumb-item active">Edit Quiz</li>
+              </ol>
+              <h1 class="h2">Add Test Paper</h1>
+              <div class="form-group row">
+                <label
+                  for="course_title"
+                  class="col-sm-3 col-form-label form-label"
+                  >Select Course:</label
+                >
+                <div class="col-sm-9">
+                  <select
+                    id="course_title"
+                    class="custom-select form-control"
+                    onchange="fetchModules()"
+                  >
+                    <option value="">Loading...</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="moduleList"
+                  class="col-sm-3 col-form-label form-label"
+                  >Select Module:</label
+                >
+                <div class="col-sm-9">
+                  <select
+                    id="moduleList"
+                    class="custom-select form-control"
+                    onchange="fetchLessons()"
+                  >
+                    <option value="">Select a Course First</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="lessonList"
+                  class="col-sm-3 col-form-label form-label"
+                  >Select Lesson:</label
+                >
+                <div class="col-sm-9">
+                  <select id="lessonList" class="custom-select form-control">
+                    <option value="">Select a Module First</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Upload Test Paper</h4>
+                </div>
+                <div class="card-body">
+                  <form id="uploadTestPaperForm">
+                    <div class="form-group row">
+                      <label
+                        for="description"
+                        class="col-sm-3 col-form-label form-label"
+                        >Description:</label
+                      >
+                      <div class="col-sm-9">
+                        <textarea
+                          id="description"
+                          name="description"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Enter description"
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="author"
+                        class="col-sm-3 col-form-label form-label"
+                        >Author:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          id="author"
+                          name="author"
+                          class="form-control"
+                          placeholder="Enter author name"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="totalMarks"
+                        class="col-sm-3 col-form-label form-label"
+                        >Total Marks:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          id="totalMarks"
+                          name="totalMarks"
+                          class="form-control"
+                          placeholder="Enter total marks"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="timeLimit"
+                        class="col-sm-3 col-form-label form-label"
+                        >Time Limit (Minutes):</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          id="timeLimit"
+                          name="timeLimit"
+                          class="form-control"
+                          placeholder="Enter time limit (optional)"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="maxAttempts"
+                        class="col-sm-3 col-form-label form-label"
+                        >Max Attempts:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          id="maxAttempts"
+                          name="maxAttempts"
+                          class="form-control"
+                          placeholder="Enter max attempts (default 1)"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="questions"
+                        class="col-sm-3 col-form-label form-label"
+                        >Questions (JSON Format):</label
+                      >
+                      <div class="col-sm-9">
+                        <textarea
+                          id="questions"
+                          name="questions"
+                          class="form-control"
+                          rows="5"
+                          placeholder='[{"question":"What is 2+2?","options":["2","3","4"],"correctAnswer":"4","type":"MCQ"}]'
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-primary">
+                          Upload Test Paper
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+              <div
+                class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                data-perfect-scrollbar
+              >
+              <div class="sidebar-p-y">
+                <!-- Account menu -->
+                <div class="sidebar-heading">Admin</div>
+                <ul class="sidebar-menu">
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button sidebar-js-collapse"
+                      data-toggle="collapse"
+                      href="#account_menu"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >person_outline</i
+                      >
+                      User
+                      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                    </a>
+                    <ul
+                      class="sidebar-submenu sm-indent collapse"
+                      id="account_menu"
+                    >
+                      <li class="sidebar-menu-item">
+                        <a
+                          class="sidebar-menu-button"
+                          href="/Client/admin-add-user.html"
+                        >
+                          <span class="sidebar-menu-text">Add User</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-menu-item">
+                        <a
+                          class="sidebar-menu-button"
+                          href="/Client/admin-view-user.html"
+                        >
+                          <span class="sidebar-menu-text">User List</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-menu-item">
+                        <a
+                          class="sidebar-menu-button"
+                          href="/Client/admin-import-user.html"
+                        >
+                          <span class="sidebar-menu-text">Import Users</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="sidebar-menu sm-active-button-bg">
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-view-course.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >search</i
+                      >
+                      View Courses
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-course.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >search</i
+                      >
+                      Add Courses
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-module.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >import_contacts</i
+                      >
+                      Add Module
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-lesson.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >class</i
+                      >
+                      Add Lesson
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-content.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >class</i
+                      >
+                      Add Content
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-quiz.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >class</i
+                      >
+                      Add Test Paper
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-assign-license.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >dvr</i
+                      >
+                      Assign Licence
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/guest-login.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >lock_open</i
+                      >
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+                <!-- Components menu -->
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Settings FAB -->
+     
+      </div>
+    </div>
+
+    <script>
+      const BASE_URL = "http://localhost:3000/api";
+
+      // Fetch courses and populate the dropdown
+      async function fetchCourses() {
+        const courseDropdown = document.getElementById("course_title");
+        try {
+          const response = await fetch(`${BASE_URL}/courses`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            },
+          });
+          const courses = await response.json();
+          courseDropdown.innerHTML =
+            '<option value="">Select a Course</option>';
+          courses.courses.forEach((course) => {
+            const option = document.createElement("option");
+            option.value = course._id;
+            option.textContent = course.title;
+            courseDropdown.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Error fetching courses:", error);
+        }
+      }
+
+      // Fetch modules based on the selected course
+      async function fetchModules() {
+        const courseId = document.getElementById("course_title").value;
+        const moduleDropdown = document.getElementById("moduleList");
+        if (!courseId) {
+          moduleDropdown.innerHTML =
+            '<option value="">Select a Module</option>';
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${BASE_URL}/admin/modules/${courseId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+              },
+            }
+          );
+          const modules = await response.json();
+          moduleDropdown.innerHTML =
+            '<option value="">Select a Module</option>';
+          modules.modules.forEach((module) => {
+            const option = document.createElement("option");
+            option.value = module._id;
+            option.textContent = module.title;
+            moduleDropdown.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Error fetching modules:", error);
+        }
+      }
+
+      // Fetch lessons based on the selected module
+      async function fetchLessons() {
+        const moduleId = document.getElementById("moduleList").value;
+        const lessonDropdown = document.getElementById("lessonList");
+        if (!moduleId) {
+          lessonDropdown.innerHTML =
+            '<option value="">Select a Lesson</option>';
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${BASE_URL}/lesson/modules/${moduleId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+              },
+            }
+          );
+          const lessons = await response.json();
+          lessonDropdown.innerHTML =
+            '<option value="">Select a Lesson</option>';
+          lessons.lessons.forEach((lesson) => {
+            const option = document.createElement("option");
+            option.value = lesson._id;
+            option.textContent = lesson.title;
+            lessonDropdown.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Error fetching lessons:", error);
+        }
+      }
+
+      // Upload Test Paper
+      document
+        .getElementById("uploadTestPaperForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const lesson_id = document.getElementById("lessonList").value;
+          const description = document.getElementById("description").value;
+          const author = document.getElementById("author").value;
+          const totalMarks = document.getElementById("totalMarks").value;
+          const timeLimit = document.getElementById("timeLimit").value;
+          const maxAttempts = document.getElementById("maxAttempts").value;
+          const questions = document.getElementById("questions").value;
+
+          try {
+            const response = await fetch(`${BASE_URL}/content/upload-content`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+              },
+              body: JSON.stringify({
+                lesson_id,
+                content_type: "TestPaper",
+                description,
+                author,
+                totalMarks: Number(totalMarks),
+                timeLimit: Number(timeLimit),
+                maxAttempts: Number(maxAttempts),
+                questions: JSON.parse(questions),
+              }),
+            });
+
+            const data = await response.json();
+            alert(data.message || "Test paper uploaded successfully!");
+          } catch (error) {
+            console.error("Error uploading test paper:", error);
+            alert(
+              "Failed to upload test paper. Please check the console for details."
+            );
+          }
+        });
+
+      // Initialize dropdowns
+      window.onload = fetchCourses;
+    </script>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    
+
+    <div class="modal fade" id="editQuiz">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h4 class="modal-title text-white">Edit Question</h4>
+            <button
+              type="button"
+              class="close text-white"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="#">
+              <div class="form-group row">
+                <label for="qtitle" class="col-form-label form-label col-md-3"
+                  >Title:</label
+                >
+                <div class="col-md-9">
+                  <input
+                    id="qtitle"
+                    type="text"
+                    class="form-control"
+                    value="Database Access"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="type" class="col-form-label form-label col-md-3"
+                  >Type:</label
+                >
+                <div class="col-md-4">
+                  <select
+                    id="type"
+                    class="custom-control custom-select form-control"
+                  >
+                    <option value="1">Input</option>
+                    <option value="2">Textarea</option>
+                    <option value="3">Checkbox</option>
+                    <option value="3">Radio</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label form-label col-md-3"
+                  >Answers:</label
+                >
+                <div class="col-md-9">
+                  <a href="#" class="btn btn-default"
+                    ><i class="material-icons">add</i> Add Answer</a
+                  >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="touch-spin-2"
+                  class="col-form-label form-label col-md-3"
+                  >Question Score:</label
+                >
+                <div class="col-md-4">
+                  <input
+                    id="touch-spin-2"
+                    data-toggle="touch-spin"
+                    data-min="0"
+                    data-max="100"
+                    data-step="5"
+                    type="text"
+                    value="50"
+                    name="demo2"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="form-group row mb-0">
+                <div class="col-md-8 offset-md-3">
+                  <button type="submit" class="btn btn-success">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/jquery.nestable.js"></script>
+    <script src="assets/vendor/jquery.bootstrap-touchspin.js"></script>
+
+    <!-- Initialize -->
+    <script src="assets/js/nestable.js"></script>
+    <script src="assets/js/touchspin.js"></script>
+  </body>
+</html>

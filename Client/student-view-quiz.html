@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student - View Quiz</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+
+    <!-- Vendor CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="student-my-courses.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                  style="width: 100px"
+                />
+              </a>
+
+           
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+              <!-- Menu -->
+
+              <!-- // END Menu -->
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="student-my-courses.html">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="student-browse-courses.html">View Quiz</a>
+                </li>
+                <li class="breadcrumb-item active" id="course-name"></li>
+              </ol>
+              <main>
+                <!-- Main Content -->
+                <div class="container-fluid p-4">
+                  <h1>Quiz Details</h1>
+                  <div class="quiz-details">
+                    <h2 id="quizTitle">Loading...</h2>
+                    <p>
+                      <strong>Description:</strong>
+                      <span id="quizDescription">Loading...</span>
+                    </p>
+                    <p>
+                      <strong>Total Marks:</strong>
+                      <span id="totalMarks">Loading...</span>
+                    </p>
+                    <p>
+                      <strong>Time Limit:</strong>
+                      <span id="timeLimit">Loading...</span> minutes
+                    </p>
+                    <p>
+                      <strong>Maximum Attempts:</strong>
+                      <span id="maxAttempts">Loading...</span>
+                    </p>
+                    <a id="startQuizButton" class="btn btn-primary">Start Quiz</a>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+              <div
+                class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                data-perfect-scrollbar
+              >
+                <div class="sidebar-p-y">
+                  <div class="sidebar-heading">Student</div>
+
+                  <!-- // END Components Menu -->
+
+                  <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item active">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/student-my-courses.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >dashboard</i
+                        >
+                        My Courses
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import BASE_URL from "/Client/assets/js/config.js";
+
+
+
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      async function fetchQuizDetails() {
+        const contentId = getQueryParam("contentId");
+        if (!contentId) {
+          alert("Lesson ID is missing in the URL.");
+          window.history.back();
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${BASE_URL}/test/details/content/${contentId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("studentToken")}`,
+              },
+            }
+          );
+          const data = await response.json();
+
+          if (!data) {
+            alert("Quiz details could not be retrieved.");
+            window.history.back();
+            return;
+          }
+
+          document.getElementById("quizTitle").textContent =
+            data.test.title || "Untitled Quiz";
+          document.getElementById("quizDescription").textContent =
+            data.test.description || "No description available.";
+          document.getElementById("totalMarks").textContent = data.test.totalMarks;
+          document.getElementById("timeLimit").textContent =
+            data.test.timeLimit || "No limit";
+          document.getElementById("maxAttempts").textContent =
+            data.test.maxAttempts || "Unlimited";
+
+          document.getElementById("startQuizButton").onclick = () =>
+            startTest(data.test.id);
+        } catch (error) {
+          console.error("Error fetching quiz details:", error);
+          alert("An error occurred while fetching quiz details.");
+          window.history.back();
+        }
+      }
+
+      async function startTest(testId) {
+        try {
+          const response = await fetch(`${BASE_URL}/test/start`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("studentToken")}`,
+            },
+            body: JSON.stringify({ test_id: testId }),
+          });
+          const result = await response.json();
+
+          if (response.status === 201) {
+            alert("Quiz started successfully!");
+            window.location.href = `/Client/student-take-quiz.html?attemptId=${result.attempt._id}`;
+          } else {
+            alert(result.message || "Failed to start the quiz.");
+          }
+        } catch (error) {
+          console.error("Error starting the quiz:", error);
+          alert("An error occurred while starting the quiz.");
+        }
+      }
+
+      window.onload = fetchQuizDetails;     
+    </script>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>   
+  </body>
+</html>

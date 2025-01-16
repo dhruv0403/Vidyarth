@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student - My Courses</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="student-my-courses.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                  style="width: 100px"
+                />
+              </a>
+
+              <!-- Search -->
+     
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+              <!-- // END Menu -->
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="student-my-courses.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active">My Courses</li>
+              </ol>
+              <div class="media mb-headings align-items-center">
+                <div class="media-body">
+                  <h1 class="h2">My Courses</h1>
+                </div>
+                <div class="media-right">
+                  <div class="btn-group btn-group-sm">
+                    <a href="#" class="btn btn-white active"
+                      ><i class="material-icons">list</i></a
+                    >
+                    <a href="#" class="btn btn-white"
+                      ><i class="material-icons">dashboard</i></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="card-columns">
+         
+              </div>
+
+              <!-- Pagination -->
+              <ul class="pagination justify-content-center pagination-sm">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true" class="material-icons"
+                      >chevron_left</span
+                    >
+                    <span>Prev</span>
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#" aria-label="1">
+                    <span>1</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="1">
+                    <span>2</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span>Next</span>
+                    <span aria-hidden="true" class="material-icons"
+                      >chevron_right</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+              <div
+                class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                data-perfect-scrollbar
+              >
+                <div class="sidebar-p-y">
+                  
+                
+               
+                  <div class="sidebar-heading">Student</div>
+                
+                 
+                  <!-- // END Components Menu -->
+
+                  
+                  <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item active">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/student-my-courses.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >dashboard</i
+                        >
+                        My Courses
+                      </a>
+                    </li>
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+   
+      </div>
+    </div>
+
+    <script type="module">
+      import BASE_URL from "/Client/assets/js/config.js";
+
+      async function fetchStudentCourses() {
+        try {
+          const response = await fetch(`${BASE_URL}/learner/courses`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("studentToken")}`,
+            },
+          });
+
+          const data = await response.json();
+          if (response.ok) {
+            renderCourses(data);
+          } else {
+            console.error("Error fetching courses:", courses.message);
+          }
+        } catch (error) {
+          console.error("Error fetching courses:", error);
+        }
+      }
+
+      function renderCourses(data) {
+        const container = document.querySelector(".card-columns");
+        container.innerHTML = ""; // Clear existing content
+
+        data.forEach((bundle) => {
+          let course = bundle.course;
+          const courseCard = document.createElement("div");
+          courseCard.className = "card";
+
+          courseCard.innerHTML = `
+                    <div class="card-header">
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="student-take-course.html?courseId=${
+                            course._id
+                          }">
+                            <img src="${
+                              course.image_url || "assets/images/default.png"
+                            }"
+                                 alt="Course image"
+                                 width="100"
+                                 class="rounded">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <h4 class="card-title m-0">
+                            <a href="student-take-course.html?courseId=${
+                              course._id
+                            }">${course.title}</a>
+                          </h4>
+                          <small class="text-muted">Modules: ${
+                            bundle.modules.length
+                          }
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress rounded-0">
+                      <div class="progress-bar progress-bar-striped bg-primary"
+                           role="progressbar"
+                           style="width: ${
+                             (course.completedLessons / course.totalLessons) *
+                             100
+                           }%"
+                           aria-valuenow="${
+                             (course.completedLessons / course.totalLessons) *
+                             100
+                           }"
+                           aria-valuemin="0"
+                           aria-valuemax="100"></div>
+                    </div>
+                    <div class="card-footer bg-white">
+                      <a href="student-take-course.html?courseId=${course._id}"
+                         class="btn btn-primary btn-sm">
+                         Continue <i class="material-icons btn__icon--right">play_circle_outline</i>
+                      </a>
+                    </div>
+                  `;
+
+          container.appendChild(courseCard);
+        });
+      }
+
+      // Fetch and display courses on page load
+      fetchStudentCourses();
+    </script>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    
+  </body>
+</html>

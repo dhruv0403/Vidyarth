@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student - Add Module</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="admin-dashboard.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                />
+              </a>
+
+              <!-- Search -->
+            
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+              <!-- Menu -->
+        
+
+              <!-- Menu -->
+             
+              <!-- // END Menu -->
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active">Assign License To Learner</li>
+              </ol>
+              <h1 class="h2">Assign License To Learner</h1>
+
+              <div class="container mt-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Assign License to Learner</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="assign-license-form">
+                            <div class="form-group">
+                                <label for="license-course-select">Select Course:</label>
+                                <select id="license-course-select" name="courseId" class="form-control" required></select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="learner-select">Select Learner:</label>
+                                <select id="learner-select" name="userId" class="form-control" required></select>
+                            </div>
+        
+                            <button type="submit" class="btn btn-success btn-block">Assign License</button>
+                        </form>
+                        <p id="assign-status" class="mt-3"></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div
+                  class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                  data-perfect-scrollbar
+                >
+                <div class="sidebar-p-y">
+                  <!-- Account menu -->
+                  <div class="sidebar-heading">Admin</div>
+                  <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button sidebar-js-collapse"
+                        data-toggle="collapse"
+                        href="#account_menu"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >person_outline</i
+                        >
+                        User
+                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                      </a>
+                      <ul
+                        class="sidebar-submenu sm-indent collapse"
+                        id="account_menu"
+                      >
+                        <li class="sidebar-menu-item">
+                          <a
+                            class="sidebar-menu-button"
+                            href="/Client/admin-add-user.html"
+                          >
+                            <span class="sidebar-menu-text">Add User</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a
+                            class="sidebar-menu-button"
+                            href="/Client/admin-view-user.html"
+                          >
+                            <span class="sidebar-menu-text">User List</span>
+                          </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                          <a
+                            class="sidebar-menu-button"
+                            href="/Client/admin-import-user.html"
+                          >
+                            <span class="sidebar-menu-text">Import Users</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="sidebar-menu sm-active-button-bg">
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-view-course.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >search</i
+                        >
+                        View Courses
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-add-course.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >search</i
+                        >
+                        Add Courses
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-add-module.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >import_contacts</i
+                        >
+                        Add Module
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-add-lesson.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >class</i
+                        >
+                        Add Lesson
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-add-content.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >class</i
+                        >
+                        Add Content
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-add-quiz.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >class</i
+                        >
+                        Add Test Paper
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/admin-assign-license.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >dvr</i
+                        >
+                        Assign Licence
+                      </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                      <a
+                        class="sidebar-menu-button"
+                        href="/Client/guest-login.html"
+                      >
+                        <i
+                          class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                          >lock_open</i
+                        >
+                        Logout
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- Components menu -->
+                </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+     
+      </div>
+    </div>
+    <script>
+        const adminToken = localStorage.getItem('adminToken');
+
+        async function fetchCourses() {
+            try {
+                const response = await fetch('http://localhost:3000/api/courses', {
+                    method: 'GET',
+                    headers: { Authorization: `Bearer ${adminToken}` },
+                });
+
+                const courses = await response.json();
+                populateDropdown(document.getElementById('license-course-select'), courses.courses);
+            } catch (error) {
+                console.error('Error fetching courses:', error.message);
+            }
+        }
+
+        async function fetchLearners() {
+            try {
+                const response = await fetch('http://localhost:3000/api/admin/students', {
+                    method: 'GET',
+                    headers: { Authorization: `Bearer ${adminToken}` },
+                });
+
+                const learners = await response.json();
+                populateDropdown(document.getElementById('learner-select'), learners);
+            } catch (error) {
+                console.error('Error fetching learners:', error.message);
+            }
+        }
+
+        function populateDropdown(dropdown, items) {
+            dropdown.innerHTML = '<option value="" disabled selected>Select an option</option>';
+            items.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item._id;
+                option.textContent = item.name || item.title;
+                dropdown.appendChild(option);
+            });
+        }
+
+        document.getElementById('assign-license-form').addEventListener('submit', async e => {
+            e.preventDefault();
+
+            const courseId = document.getElementById('license-course-select').value;
+            const studentId = document.getElementById('learner-select').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/admin/assign-license', {
+                    method: 'POST',
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ courseId, userId:studentId }),
+                });
+
+                const result = await response.json();
+                const status = document.getElementById('assign-status');
+                status.textContent = response.ok
+                    ? `License assigned to ${result.name}`
+                    : `Error: ${result.message}`;
+                status.style.color = response.ok ? 'green' : 'red';
+            } catch (error) {
+                console.error('Error assigning license:', error.message);
+            }
+        });
+
+        fetchCourses();
+        fetchLearners();
+    </script>
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    
+
+    <!-- Global Settings -->
+    <script src="assets/js/settings.js"></script>
+
+    <!-- Moment.js -->
+    <script src="assets/vendor/moment.min.js"></script>
+    <script src="assets/vendor/moment-range.js"></script>
+
+
+  </body>
+</html>

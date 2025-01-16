@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Student - View Course</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex" />
+
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Perfect Scrollbar -->
+    <link
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons -->
+    <link
+      type="text/css"
+      href="assets/css/material-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet" />
+
+    <!-- Preloader -->
+    <link type="text/css" href="assets/vendor/spinkit.css" rel="stylesheet" />
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet" />
+  </head>
+
+  <body class="layout-fluid">
+    <div class="preloader">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+
+      <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+      <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+      <!-- Header -->
+
+      <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+        <div class="mdk-header__content">
+          <!-- Navbar -->
+          <nav
+            id="default-navbar"
+            class="navbar navbar-expand navbar-dark bg-primary m-0"
+          >
+            <div class="container-fluid">
+              <!-- Toggle sidebar -->
+              <button
+                class="navbar-toggler d-block"
+                data-toggle="sidebar"
+                type="button"
+              >
+                <span class="material-icons">menu</span>
+              </button>
+
+              <!-- Brand -->
+              <a href="admin-dashboard.html" class="navbar-brand">
+                <img
+                  src="../Client/assets/images/logo/Vidyarthlogo.png"
+                  class="mr-2"
+                  alt="Vidyarth"
+                />
+              </a>
+
+              <!-- Search -->
+           
+              <!-- // END Search -->
+
+              <div class="flex"></div>
+
+              <!-- Menu -->
+            
+
+              <!-- Menu -->
+              <ul class="nav navbar-nav flex-nowrap">
+                <!-- Notifications dropdown -->
+                <!-- <li
+                  class="nav-item dropdown dropdown-notifications dropdown-menu-sm-full"
+                >
+                  <button
+                    class="nav-link btn-flush dropdown-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                    data-dropdown-disable-document-scroll
+                    data-caret="false"
+                  >
+                    <i class="material-icons">notifications</i>
+                    <span class="badge badge-notifications badge-danger"
+                      >2</span
+                    >
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <div data-perfect-scrollbar class="position-relative">
+                      <div class="dropdown-header">
+                        <strong>Messages</strong>
+                      </div>
+                      <div class="list-group list-group-flush mb-0">
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action unread"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">5 minutes ago</small>
+
+                            <span
+                              class="ml-auto unread-indicator bg-primary"
+                            ></span>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <img
+                                src="assets/images/people/110/woman-5.jpg"
+                                alt="people"
+                                class="avatar-img rounded-circle"
+                              />
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <strong>Michelle</strong>
+                              <span class="text-black-70"
+                                >Clients loved the new design.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action unread"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">5 minutes ago</small>
+
+                            <span
+                              class="ml-auto unread-indicator bg-primary"
+                            ></span>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <img
+                                src="assets/images/people/110/woman-5.jpg"
+                                alt="people"
+                                class="avatar-img rounded-circle"
+                              />
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <strong>Michelle</strong>
+                              <span class="text-black-70">🔥 Superb job..</span>
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+
+                      <div class="dropdown-header">
+                        <strong>System notifications</strong>
+                      </div>
+                      <div class="list-group list-group-flush mb-0">
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action border-left-3 border-left-danger"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">3 minutes ago</small>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <span
+                                class="avatar-title rounded-circle bg-light"
+                              >
+                                <i
+                                  class="material-icons font-size-16pt text-danger"
+                                  >account_circle</i
+                                >
+                              </span>
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <span class="text-black-70"
+                                >Your profile information has not been synced
+                                correctly.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">5 hours ago</small>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <span
+                                class="avatar-title rounded-circle bg-light"
+                              >
+                                <i
+                                  class="material-icons font-size-16pt text-success"
+                                  >group_add</i
+                                >
+                              </span>
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <strong>Adrian. D</strong>
+                              <span class="text-black-70"
+                                >Wants to join your private group.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+
+                        <a
+                          href="student-messages.html"
+                          class="list-group-item list-group-item-action"
+                        >
+                          <span class="d-flex align-items-center mb-1">
+                            <small class="text-muted">1 day ago</small>
+                          </span>
+                          <span class="d-flex">
+                            <span class="avatar avatar-xs mr-2">
+                              <span
+                                class="avatar-title rounded-circle bg-light"
+                              >
+                                <i
+                                  class="material-icons font-size-16pt text-warning"
+                                  >storage</i
+                                >
+                              </span>
+                            </span>
+                            <span class="flex d-flex flex-column">
+                              <span class="text-black-70"
+                                >Your deploy was successful.</span
+                              >
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li> -->
+                <!-- // END Notifications dropdown -->
+                <!-- User dropdown -->
+                <!-- <li class="nav-item dropdown ml-1 ml-md-3">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    ><img
+                      src="assets/images/people/50/guy-6.jpg"
+                      alt="Avatar"
+                      class="rounded-circle"
+                      width="40"
+                  /></a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="student-account-edit.html">
+                      <i class="material-icons">edit</i> Edit Account
+                    </a>
+                    <a class="dropdown-item" href="student-profile.html">
+                      <i class="material-icons">person</i> Public Profile
+                    </a>
+                    <a class="dropdown-item" href="guest-login.html">
+                      <i class="material-icons">lock</i> Logout
+                    </a>
+                  </div>
+                </li> -->
+                <!-- // END User dropdown -->
+              </ul>
+              <!-- // END Menu -->
+            </div>
+          </nav>
+          <!-- // END Navbar -->
+        </div>
+      </div>
+
+      <!-- // END Header -->
+
+      <!-- Header Layout Content -->
+      <div class="mdk-header-layout__content">
+        <div
+          data-push
+          data-responsive-width="992px"
+          class="mdk-drawer-layout js-mdk-drawer-layout"
+        >
+          <div class="mdk-drawer-layout__content page">
+            <div class="container-fluid page__container">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active">Add Course</li>
+              </ol>
+              <h1 class="h2">Add Course</h1>
+              <main class="container my-5">
+                                <!-- Section for listing all courses -->
+                <section id="list-courses" class="card card-body mb-5">
+                  <h2 class="text-center mb-4">All Courses</h2>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Description</th>
+                          <th>Type</th>
+                          <th>Category</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="course-list">
+                        <!-- Rows dynamically generated via JavaScript -->
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <!-- Section for viewing course details -->
+                <section id="course-details" class="card card-body">
+                  <h2 class="text-center mb-4">Course Details</h2>
+                  <div id="details-content">
+                    <!-- Content dynamically generated via JavaScript -->
+                  </div>
+                </section>
+              </main>
+            </div>
+          </div>
+
+          <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+              <div
+                class="sidebar sidebar-left sidebar-dark bg-dark o-hidden"
+                data-perfect-scrollbar
+              >
+              <div class="sidebar-p-y">
+                <!-- Account menu -->
+                <div class="sidebar-heading">Admin</div>
+                <ul class="sidebar-menu">
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button sidebar-js-collapse"
+                      data-toggle="collapse"
+                      href="#account_menu"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >person_outline</i
+                      >
+                      User
+                      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                    </a>
+                    <ul
+                      class="sidebar-submenu sm-indent collapse"
+                      id="account_menu"
+                    >
+                      <li class="sidebar-menu-item">
+                        <a
+                          class="sidebar-menu-button"
+                          href="/Client/admin-add-user.html"
+                        >
+                          <span class="sidebar-menu-text">Add User</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-menu-item">
+                        <a
+                          class="sidebar-menu-button"
+                          href="/Client/admin-view-user.html"
+                        >
+                          <span class="sidebar-menu-text">User List</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-menu-item">
+                        <a
+                          class="sidebar-menu-button"
+                          href="/Client/admin-import-user.html"
+                        >
+                          <span class="sidebar-menu-text">Import Users</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul class="sidebar-menu sm-active-button-bg">
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-course.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >search</i
+                      >
+                      Add Courses
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-module.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >import_contacts</i
+                      >
+                      Add Module
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-lesson.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >class</i
+                      >
+                      Add Lesson
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-content.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >class</i
+                      >
+                      Add Content
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-add-quiz.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >class</i
+                      >
+                      Add Test Paper
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/admin-assign-license.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >dvr</i
+                      >
+                      Assign Licence
+                    </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                    <a
+                      class="sidebar-menu-button"
+                      href="/Client/guest-login.html"
+                    >
+                      <i
+                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons"
+                        >lock_open</i
+                      >
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+                <!-- Components menu -->
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+    </div>
+
+    <script>
+      const adminToken = localStorage.getItem("adminToken");
+
+      // Fetch and list courses on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("http://localhost:3000/api/courses", {
+          headers: {
+            Authorization: `Bearer ${adminToken}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const courseList = document.getElementById("course-list");
+            data.courses.forEach((course) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                            <td>${course.title}</td>
+                            <td>${course.description}</td>
+                            <td>${course.course_type}</td>
+                            <td>${course.category}</td>
+                            <td>${course.status}</td>
+                            <td><button class="btn btn-sm btn-info" onclick="viewCourse('${course._id}')">View</button></td>
+                        `;
+              courseList.appendChild(row);
+            });
+          })
+          .catch((error) => console.error("Error listing courses:", error));
+      });
+
+     
+      // Fetch and display a course by ID
+      function viewCourse(courseId) {
+        fetch(`http://localhost:3000/api/courses/${courseId}`, {
+          headers: {
+            Authorization: `Bearer ${adminToken}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const detailsContent = document.getElementById("details-content");
+            detailsContent.innerHTML = `
+                        <h3>${data.course.title}</h3>
+                        <p>${data.course.description}</p>
+                        <p>Type: ${data.course.course_type}</p>
+                        <p>Category: ${data.course.category}</p>
+                        <p>Status: ${data.course.status}</p>
+                        <h4>Modules:</h4>
+                        <ul>
+                            ${data.modules
+                              .map((module) => `<li>${module.title}</li>`)
+                              .join("")}
+                        </ul>
+                    `;
+          })
+          .catch((error) => console.error("Error fetching course:", error));
+      }
+    </script>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="assets/js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    
+
+    <!-- Global Settings -->
+    <script src="assets/js/settings.js"></script>
+
+    <!-- Moment.js -->
+    <script src="assets/vendor/moment.min.js"></script>
+    <script src="assets/vendor/moment-range.js"></script>
+
+  
+  </body>
+</html>

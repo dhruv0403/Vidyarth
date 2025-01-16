@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCORM Player</title>
+    <style>
+         html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        iframe {
+            width: 100vw;
+            height: 95vh;
+            border: none; /* Removes the border for a clean look */
+            object-fit: contain; /* Ensures aspect ratio is maintained */
+        }
+    </style>
+  </head>
+  <body>
+    <div class="player-container">
+     
+      
+        <!-- Dynamically load SCORM content -->
+        <iframe src="<%= scormPath %>" allowfullscreen></iframe>
+        <script>
+          (function () {
+            window.API = {
+              initialized: false,
+              values: {},
+
+              LMSInitialize: function () {
+                console.log("SCORM API: LMSInitialize called");
+                this.initialized = true;
+                return "true";
+              },
+
+              LMSFinish: function () {
+                console.log("SCORM API: LMSFinish called");
+                this.initialized = false;
+                return "true";
+              },
+
+              LMSSetValue: function (key, value) {
+                console.log(
+                  `SCORM API: LMSSetValue called with ${key} = ${value}`
+                );
+                this.values[key] = value;
+                return "true";
+              },
+
+              LMSGetValue: function (key) {
+                console.log(`SCORM API: LMSGetValue called for ${key}`);
+                return this.values[key] || "";
+              },
+
+              LMSCommit: function () {
+                console.log("SCORM API: LMSCommit called");
+                return "true";
+              },
+
+              LMSGetLastError: function () {
+                console.log("SCORM API: LMSGetLastError called");
+                return "0";
+              },
+
+              LMSGetErrorString: function (errorCode) {
+                console.log(
+                  `SCORM API: LMSGetErrorString called for ${errorCode}`
+                );
+                return "No error";
+              },
+
+              LMSGetDiagnostic: function () {
+                console.log("SCORM API: LMSGetDiagnostic called");
+                return "No diagnostic information available";
+              },
+            };
+
+            console.log("SCORM API initialized");
+          })();
+        </script>
+      
+    
+    </div>
+  </body>
+</html>
